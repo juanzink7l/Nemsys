@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %} NEMSYS | Cadastrar Evento {% endblock %}
+{% block content %}
+<form method="POST" action="{% url 'cadastrar_evento' %}" class="mt-5 mb-5">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-12 mb-3"> <!-- regula o tamanho da tela, em quantas partes ela é dividida -->
+            <label for="nome" class="form-label">Nome do evento: </label>
+            <input type="text" id="nome" name="nome" class="form-control" required>
+        </div>
+        <div class="col-12 col-md-3 col-lg-2 mb-3"> <!-- regula o tamanho da tela, em quantas partes ela é dividida -->
+            <label for="lotacao" class="form-label">Lotação do evento: </label>
+            <input type="number" id="lotacao" name="lotacao" class="form-control">
+        </div>
+        <div class="col-12 col-md-3 col-lg-2 mb-3"> <!-- regula o tamanho da tela, em quantas partes ela é dividida -->
+            <label for="dia" class="form-label">Dia do evento: </label>
+            <input type="date" id="dia" name="dia" class="form-control" required>
+        </div>
+        <div class="col-12 col-md-3 col-lg-2 mb-3"> <!-- regula o tamanho da tela, em quantas partes ela é dividida -->
+            <label for="horario" class="form-label">Horário do evento: </label>
+            <input type="time" id="horario" name="horario" class="form-control" required>
+        </div>
+        <div class="col-12 col-md-3 col-lg-2 mb-3"> <!-- regula o tamanho da tela, em quantas partes ela é dividida -->
+            <label for="ingresso" class="form-label">Preço do ingresso: </label>
+            <input type="number" id="ingresso" name="ingresso" class="form-control">
+        </div>
+        <div class="col-12 col-md-3 col-lg-2 mb-3"> <!-- regula o tamanho da tela, em quantas partes ela é dividida -->
+            <label for="telefone" class="form-label">Telefone do evento: </label>
+            <input type="number" id="telefone" name="telefone" class="form-control" required>
+        </div>
+        <div class="col-12 col-md-3 col-lg-2 mb-3"> <!-- regula o tamanho da tela, em quantas partes ela é dividida -->
+            <label for="endereco" class="form-label">Endereço do evento: </label>
+            <input type="text" id="endereco" name="endereco" class="form-control" required>
+        </div>
+    </div>
+</form> 
+{% endblock %}
