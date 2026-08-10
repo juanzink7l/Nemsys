@@ -3,7 +3,8 @@ from .models import Evento
 
 # Create your views here.
 def index(request):
-    return render(request, "index.html")
+    eventos = Evento.objects.all()
+    return render(request, "index.html", {"eventos": eventos})
 
 def cadastrar_evento(request):
     if request.method == "POST":
