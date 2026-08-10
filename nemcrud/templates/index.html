@@ -1,24 +1,37 @@
 {% extends 'base.html' %}
-{% block title%}NEMSYS | Home Page{% endblock %}
+{% block title %}NEMSYS | Home Page{% endblock %}
 {% block content %}
 <div class="container mt-5 mb-5">
-    <h1>Olá👻</h1>
+    <h1>Seja bem vindo ao NEMSYS Home Page! 😎</h1>
     <hr>
-    <ul>
+    
+    <!-- row-cols-1 no celular (1 por linha) e row-cols-md-3 no computador (3 por linha) -->
+    <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for evento in eventos %}
-            <li>
-                {{ evento.codigo_evento }} |
-                {{ evento.nome }} |
-                {{ evento.lotacao|default:0 }} |
-                {{ evento.dia }} |
-                {{ evento.horario }} |
-                {{ evento.ingresso|default:0 }} |
-                {{ evento.telefone }} |
-                {{ evento.endereco }} 
-            </li>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">{{ evento.nome }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Código: {{ evento.codigo_evento }}</h6>
+                        <hr>
+                        <p class="card-text">
+                            <strong>Dia:</strong> {{ evento.dia }}<br>
+                            <strong>Horário:</strong> {{ evento.horario }}<br>
+                            <strong>Lotação:</strong> {{ evento.lotacao }}<br>
+                            <strong>Ingresso:</strong> R$ {{ evento.ingresso }}<br>
+                            <strong>Telefone:</strong> {{ evento.telefone }}<br>
+                            <strong>Endereço:</strong> {{ evento.endereco }}
+                        </p>
+                    </div>
+                </div>
+            </div>
         {% empty %}
-                <li>Nenhum evento cadastrado</li>
+            <div class="col-12">
+                <div class="alert alert-info" role="alert">
+                    Nenhum evento cadastrado.
+                </div>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
 </div>
 {% endblock %}
